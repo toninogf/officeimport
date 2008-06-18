@@ -58,7 +58,7 @@ public class OfficeImportPluginApi extends Api
         this.plugin = plugin;
     }
 
-    public OutputStream convert(InputStream inputDoc, String format)
+    public OutputStream convert(InputStream inputDoc, String format, boolean convertToXwikiSyntax)
     {
         File inputFile = new File("document.doc");
         File outputFile = new File("document.pdf");
