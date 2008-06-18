@@ -72,10 +72,21 @@ public class OfficeImportPluginApi extends Api
         // convert
         DocumentConverter converter = new OpenOfficeDocumentConverter(connection);
         converter.convert(inputFile, outputFile);
-         
+
         // close the connection
         connection.disconnect();
 
         return null;
     }
+
+    public String convert(String filename)
+    {
+        return null;
+    }
+
+    public void convert(File input, File output)
+    {
+        
+    }
+    
 }
