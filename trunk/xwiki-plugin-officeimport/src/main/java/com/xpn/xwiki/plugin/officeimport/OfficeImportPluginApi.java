@@ -58,17 +58,7 @@ public class OfficeImportPluginApi extends Api
         this.plugin = plugin;
     }
 
-    public String getMyHelloworld()
-    {
-        return "hello world!";
-    }
-
-    public String getMyHelloworld(String name)
-    {
-        return "hello " + name;
-    }
-
-    public OutputStream convert(InputStream inputDoc)
+    public OutputStream convert(InputStream inputDoc, String format)
     {
         File inputFile = new File("document.doc");
         File outputFile = new File("document.pdf");

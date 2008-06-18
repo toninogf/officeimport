@@ -48,6 +48,7 @@ public class OfficeImportPlugin extends XWikiDefaultPlugin
      *
      * @see com.xpn.xwiki.plugin.XWikiDefaultPlugin#getName()
      */
+    @Override
     public String getName()
     {
         return "officeimport";
@@ -58,6 +59,7 @@ public class OfficeImportPlugin extends XWikiDefaultPlugin
      *
      * @see com.xpn.xwiki.plugin.XWikiDefaultPlugin#getPluginApi
      */
+    @Override
     public Api getPluginApi(XWikiPluginInterface plugin, XWikiContext context)
     {
         return new OfficeImportPluginApi((OfficeImportPlugin) plugin, context);
@@ -66,6 +68,7 @@ public class OfficeImportPlugin extends XWikiDefaultPlugin
     /**
      * {@inheritDoc}
      */
+    @Override
     public void init(XWikiContext context)
     {
         super.init(context);
