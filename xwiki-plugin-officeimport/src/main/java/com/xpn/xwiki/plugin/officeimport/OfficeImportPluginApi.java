@@ -70,6 +70,7 @@ public class OfficeImportPluginApi extends Api
             e.printStackTrace();
         }
         // convert
+        // TODO use different converter for remote and local oo server
         DocumentConverter converter = new OpenOfficeDocumentConverter(connection);
         converter.convert(inputFile, outputFile);
 
