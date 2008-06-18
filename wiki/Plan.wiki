@@ -1,0 +1,11 @@
+ * plugin accept a inputstream
+ * convert the inputstream to html or xwiki code(how to address the pic
+ * then product a outputstream which contain the result html or xwiki code as a output
+ 
+ $someDoc.setContent($officimportPlugin.convert($doc.getAttachment("...")))
+ $someDoc.save()
+
+
+
+ working on the XHTML to wiki converter
+ use the wikimodel XHTML to wiki syntax parser
