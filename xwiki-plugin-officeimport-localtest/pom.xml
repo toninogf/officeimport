@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<parent>
+		<artifactId>xwiki-plugins</artifactId>
+		<groupId>com.xpn.xwiki.platform.plugins</groupId>
+		<version>8-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.xpn.xwiki.platform.plugins</groupId>
+	<artifactId>xwiki-plugin-officeimport-localtest</artifactId>
+	<name>XWiki Platform - Plugins - office import - localtest</name>
+	<version>0.0.1-SNAPSHOT</version>
+	<description>localtest</description>
+	<dependencies>
+		<dependency>
+			<groupId>com.artofsolving</groupId>
+			<artifactId>jodconverter</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-jdk14</artifactId>
+			<version>1.4.3</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+</project>
