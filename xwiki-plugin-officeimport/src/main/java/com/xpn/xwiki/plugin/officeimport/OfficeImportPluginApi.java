@@ -20,17 +20,24 @@
 
 package com.xpn.xwiki.plugin.officeimport;
 
+import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.ConnectException;
 
+import com.artofsolving.jodconverter.DefaultDocumentFormatRegistry;
 import com.artofsolving.jodconverter.DocumentConverter;
+import com.artofsolving.jodconverter.DocumentFormat;
 import com.artofsolving.jodconverter.openoffice.connection.OpenOfficeConnection;
 import com.artofsolving.jodconverter.openoffice.connection.SocketOpenOfficeConnection;
 import com.artofsolving.jodconverter.openoffice.converter.OpenOfficeDocumentConverter;
 import com.xpn.xwiki.XWikiContext;
+import com.xpn.xwiki.XWikiException;
 import com.xpn.xwiki.api.Api;
+import com.xpn.xwiki.doc.XWikiAttachment;
 
 public class OfficeImportPluginApi extends Api
 {
@@ -80,8 +87,32 @@ public class OfficeImportPluginApi extends Api
         return null;
     }
 
-    public String convert(String filename)
+    public String convert(String attachmentFilename)
     {
+        XWikiContext context = getXWikiContext();
+        XWikiAttachment attachment = context.getDoc().getAttachment(attachmentFilename);
+        if (attachment == null) {           
+            return "Couldn't find the requested attachment: " + attachmentFilename;
+        }               
+        byte[] array;
+        try {
+            array = attachment.getContent(context);
+        } catch (XWikiException e2) {
+            e2.printStackTrace();
+            return "Error: " + e2.getMessage();
+        }
+        InputStream inputStream = new ByteArrayInputStream(array);
+        
+        int port = SocketOpenOfficeConnection.DEFAULT_PORT;
+        OpenOfficeConnection connection = new SocketOpenOfficeConnection(port);
+        DocumentConverter converter = new OpenOfficeDocumentConverter(connection);
+        DefaultDocumentFormatRegistry formatRegistry = new DefaultDocumentFormatRegistry();
+        DocumentFormat inputFormat = formatRegistry.getFormatByFileExtension(attachmentFilename.substring(attachmentFilename.lastIndexOf(".")));
+        DocumentFormat outputFormat = formatRegistry.getFormatByFileExtension("html");
+        OutputStream outputStream = null;
+        converter.convert(inputStream, inputFormat, outputStream, outputFormat);
+        BufferedWriter reader = new BufferedWriter(new OutputStreamWriter(outputStream));
+        reader.
         return null;
     }
 

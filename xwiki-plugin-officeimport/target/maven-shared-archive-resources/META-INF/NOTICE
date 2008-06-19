@@ -6,4 +6,19 @@
 XWiki Platform - Plugins - office import
 Copyright 2004-2008 XWiki
 
+This product includes/uses software developed by 'an unknown organization'
+  - OpenOffice.org "javaunohelper" module (http://udk.openoffice.org)
+  - OpenOffice.org "jurt" module (http://udk.openoffice.org)
+  - OpenOffice.org "ridljar" module (http://udk.openoffice.org)
+  - OpenOffice.org "unoil" module (http://udk.openoffice.org)
+
+This product includes/uses software developed by 'Art of Solving' (http://www.artofsolving.com)
+  - JODConverter (http://www.artofsolving.com/opensource/jodconverter)
+
+This product includes/uses software developed by 'QOS.ch' (http://www.qos.ch)
+  - SLF4J API Module (http://www.slf4j.org)
+
+This product includes/uses software developed by 'The Apache Software Foundation' (http://www.apache.org/)
+  - Commons IO (http://commons.apache.org/io/)
+
 
