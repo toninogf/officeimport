@@ -111,7 +111,8 @@ public class OfficeImporterPlugin extends XWikiDefaultPlugin
 
         DocumentConverter converter = this.getConverter();
         DefaultDocumentFormatRegistry formatRegistry = new DefaultDocumentFormatRegistry();
-        String inputfileExtension = attachmentFilename.substring(attachmentFilename.lastIndexOf("."));
+        String inputfileExtension = attachmentFilename.substring(attachmentFilename.lastIndexOf(".") + 1);
+        System.out.println(inputfileExtension);
         if (inputfileExtension == null || inputfileExtension.equals("")) {
             return "Error: attachment file must have a extension.";
         }
@@ -138,6 +139,7 @@ public class OfficeImporterPlugin extends XWikiDefaultPlugin
     {
         OpenOfficeConnection connection = new SocketOpenOfficeConnection(port);
         DocumentConverter converter = new OpenOfficeDocumentConverter(connection);
+        // TODO where to close the connection
         return converter;
     }
 }
