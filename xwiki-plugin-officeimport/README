@@ -22,14 +22,14 @@ Testing
 2. download jodconverter 2.2.1 from http://sourceforge.net/project/showfiles.php?group_id=91849
 3. copy the lib in jodconverter-2.2.1.zip to xwiki lib path, somepath like $XWIKI/webapps/xwiki/WEB-INF/lib
 4. build the xwiki-plugin-officeimporter.jar and copy it to $XWIKI/webapps/xwiki/WEB-INF/lib
-5. add com.xpn.xwiki.plugin.officeimport.OfficeImporterPlugin in xwiki.cfg
+5. add com.xpn.xwiki.plugin.officeimporter.OfficeImporterPlugin in xwiki.cfg
 6. start up xwiki
 
 test it in the xwiki page:
 1. attach a MS doc to a xwiki page
 2. get the attachment name, etc "mydocfile.doc"
 3. add the code to this page like following:
-#set($content=$xwiki.officeimporter.convert("mydocfile.doc")
+#set($content=$xwiki.officeimporter.convert("mydocfile.doc"))
 $content
 4. save and veiw, will see the content.
 
