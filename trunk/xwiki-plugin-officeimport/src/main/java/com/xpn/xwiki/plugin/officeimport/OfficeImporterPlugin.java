@@ -64,7 +64,7 @@ public class OfficeImporterPlugin extends XWikiDefaultPlugin
     @Override
     public String getName()
     {
-        return "officeimport";
+        return "officeimporter";
     }
 
     /**
