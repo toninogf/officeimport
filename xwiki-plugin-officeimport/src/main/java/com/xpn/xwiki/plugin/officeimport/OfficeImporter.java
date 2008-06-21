@@ -22,5 +22,7 @@ public interface OfficeImporter
     void convert(InputStream inputStream, OutputStream outputStream, int outputFormat);
     void convert(InputStream inputStream, OutputStream outputStream, boolean convertToXwikiSyntax);
     void convert(InputStream inputStream, OutputStream outputStream, int outputFormat);
+    void convert(String filename);
+    void convert(String filename, boolean convertToXwikiSyntax);
     */
 }
