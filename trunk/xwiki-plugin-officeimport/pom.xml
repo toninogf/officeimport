@@ -9,10 +9,10 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.xpn.xwiki.platform.plugins</groupId>
-	<artifactId>xwiki-plugin-officeimport</artifactId>
-	<name>XWiki Platform - Plugins - office import</name>
+	<artifactId>xwiki-plugin-officeimporter</artifactId>
+	<name>XWiki Platform - Plugins - office importer</name>
 	<version>0.0.1-SNAPSHOT</version>
-	<description>XWiki Platform - Plugins - office import</description>
+	<description>XWiki Platform - Plugins - office importer</description>
 	<dependencies>
 		<dependency>
 			<groupId>com.artofsolving</groupId>
