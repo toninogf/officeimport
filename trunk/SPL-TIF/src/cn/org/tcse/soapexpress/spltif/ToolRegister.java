@@ -1,6 +1,7 @@
 package cn.org.tcse.soapexpress.spltif;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -22,7 +23,11 @@ public class ToolRegister {
 	private String path;
 	public ToolRegister(String filepath) {
 		this.path = filepath;
-		init(filepath);
+		if(path==null || path.equals("")) {
+			System.out.println("tool event repository is illegal. will use default repository!");
+			this.path = "test-resource";
+		}
+		init(path);
 	}
 
 	private boolean init(String filepath) {
@@ -32,7 +37,15 @@ public class ToolRegister {
 					+ " dosen't exist!");
 			return false;
 		}
-		File[] toolsFiles = toolsFile.listFiles();
+		FileFilter fileFilter = new FileFilter() {
+			public boolean accept(File f) {
+				if(f.isFile() || f.getName().substring(f.getName().lastIndexOf(".")).equals("xml")) {
+					return true;
+				}
+				return false;
+			}
+		};
+		File[] toolsFiles = toolsFile.listFiles(fileFilter);
 		for (File toolFile : toolsFiles) {
 			String filename = toolFile.getName();
 			registerTool(filename.substring(0, filename.indexOf(".")),
@@ -88,6 +101,10 @@ public class ToolRegister {
 		String toolId = eventTypeString + "-" + productString;
 		tools.put(toolId, tool);
 		File docFile = new File(this.path, toolId + ".xml");
+		if(docFile.exists()) {
+			System.out.println("the tool and the event is registered");
+			return;
+		}
 		writeToolDocumentToFile(tool, docFile);
 	}
 
@@ -169,9 +186,10 @@ public class ToolRegister {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ToolRegister toolRegister = new ToolRegister("test-resource");
+		ToolRegister toolRegister = new ToolRegister("");
 		System.out.println(toolRegister);
 		toolRegister.registerTool("a", "b", "c", "d", "e", "f");
 		System.out.println(toolRegister);
+		toolRegister.removeTool("b", "d");
 	}
 }
