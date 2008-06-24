@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EventMatch>
+  <EventMatchName></EventMatchName>
+  <EventType>build</EventType>
+  <ObjectType>c</ObjectType>
+  <ProductType>ant</ProductType>
+  <ProductVersion>1.7</ProductVersion>
+  <ProductInstance>f</ProductInstance>
+</EventMatch>
