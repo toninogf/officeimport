@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EventMatch>
+  <EventMatchName></EventMatchName>
+  <EventType>package</EventType>
+  <ObjectType>c</ObjectType>
+  <ProductType>maven</ProductType>
+  <ProductVersion>2.9</ProductVersion>
+  <ProductInstance>f</ProductInstance>
+</EventMatch>
