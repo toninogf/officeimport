@@ -24,7 +24,7 @@ public class ToolRegister {
 	public ToolRegister(String filepath) {
 		this.path = filepath;
 		if(path==null || path.equals("")) {
-			System.out.println("tool event repository is illegal. will use default repository!");
+			System.err.println("tool event repository is illegal. will use default repository!");
 			this.path = "event-tool";
 		}
 		init(path);
@@ -102,7 +102,7 @@ public class ToolRegister {
 		tools.put(toolId, tool);
 		File docFile = new File(this.path, toolId + ".xml");
 		if(docFile.exists()) {
-			System.out.println("the tool and the event is registered");
+			System.err.println("the tool and the event is registered");
 			return;
 		}
 		writeToolDocumentToFile(tool, docFile);
@@ -113,7 +113,7 @@ public class ToolRegister {
 		tools.remove(toolId);
 		File docFile = new File(this.path, toolId + ".xml");
 		if(!docFile.exists() || !docFile.delete()) {
-			System.out.println("can't delete tool file");
+			System.err.println("can't delete tool file");
 			return false;
 		}
 		return true;
