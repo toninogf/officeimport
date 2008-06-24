@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EventMatch>
+  <EventMatchName>a</EventMatchName>
+  <EventType>b</EventType>
+  <ObjectType>c</ObjectType>
+  <ProductType>d</ProductType>
+  <ProductVersion>e</ProductVersion>
+  <ProductInstance>f</ProductInstance>
+</EventMatch>
+
