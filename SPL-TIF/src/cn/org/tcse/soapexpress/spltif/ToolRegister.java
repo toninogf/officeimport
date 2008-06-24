@@ -25,7 +25,7 @@ public class ToolRegister {
 		this.path = filepath;
 		if(path==null || path.equals("")) {
 			System.out.println("tool event repository is illegal. will use default repository!");
-			this.path = "test-resource";
+			this.path = "event-tool";
 		}
 		init(path);
 	}
