@@ -173,8 +173,8 @@ public class ToolRegister {
 		return "please see the console";
 	}
 
-	public Map getTools() {
-		return this.tools;
+	public Map<String, Document> getTools() {
+		return tools;
 	}
 
 	public Document getTool(String eventTypeString, String productString) {
