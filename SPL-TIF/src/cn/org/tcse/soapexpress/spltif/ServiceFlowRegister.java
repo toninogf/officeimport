@@ -80,6 +80,12 @@ public class ServiceFlowRegister {
 	}
 
 	private void writeServiceFlowDocumentToFile(Document doc, File docFile) {
+		try {
+			System.out.println(docFile.getCanonicalPath());
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		XMLOutputter outp = new XMLOutputter();
 		Format format = Format.getPrettyFormat();
 		outp.setFormat(format);

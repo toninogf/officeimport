@@ -4,12 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>map</title>
+<title>index</title>
 </head>
 <body>
-<p>
-<a href="index.jsp">home</a>
-<a href="RegisterMap.jsp">register map</a>
-</p>
+<p><a href="Tools.jsp">tools</a></p>
+<p><a href="ServiceFlow.jsp">service flow</a></p>
+<p><a href="Map.jsp">map</a></p>
 </body>
 </html>
