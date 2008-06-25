@@ -8,7 +8,6 @@
 </head>
 <body>
 <p>
-<a href="index.jsp">home</a>
 <a href="RegisterServiceFlow.jsp">register service flow</a>
 </p>
 </body>

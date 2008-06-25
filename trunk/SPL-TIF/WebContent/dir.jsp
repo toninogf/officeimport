@@ -7,8 +7,8 @@
 <title>index</title>
 </head>
 <body>
-<p><a href="Tools.jsp">tools</a></p>
-<p><a href="ServiceFlow.jsp">service flow</a></p>
-<p><a href="Map.jsp">map</a></p>
+<p><a href="Tools.jsp" target="lower_right">tools</a></p>
+<p><a href="ServiceFlow.jsp" target="lower_right">service flow</a></p>
+<p><a href="Map.jsp" target="lower_right">map</a></p>
 </body>
 </html>
