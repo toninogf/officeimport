@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ALFEventActionMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <ApplicationName>TestALFConfig1</ApplicationName>
+  <ApplicationName>TestConfig1</ApplicationName>
   <EventActions>
     <EventAction>
       <EventMatch>
         <EventMatchName />
-        <EventType>Object Created</EventType>
+        <EventType>build</EventType>
         <ObjectType>WorkFlow</ObjectType>
-        <Product>MyProduct</Product>
+        <Product>ant</Product>
         <ProductVersion>7.0</ProductVersion>
         <ProductInstance>ProductInstance</ProductInstance>
       </EventMatch>
       <Action>
         <ServiceFlow>
-          <ServiceFlowName>ALFServiceFlowSOAP1</ServiceFlowName>
+          <ServiceFlowName>ServiceFlowSOAP1</ServiceFlowName>
           <Endpoint>http://localhost:8080/TestALFService/services/ALFServiceFlowSOAP?EventNotice</Endpoint>
         </ServiceFlow>
       </Action>

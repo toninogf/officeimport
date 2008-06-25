@@ -184,6 +184,9 @@ public class ToolRegister {
 		return tools.get(toolId);
 	}
 
+	public Document getTool(String toolId) {
+		return tools.get(toolId);
+	}
 	/**
 	 * @param args
 	 */
