@@ -152,11 +152,11 @@ public class ServiceFlowRegister {
 		return "please see the console";
 	}
 
-	public Map<String, Document> getTools() {
+	public Map<String, Document> getServiceFlows() {
 		return serviceFlows;
 	}
 
-	public Document getTool(String serviceFlowName) {
+	public Document getServiceFlow(String serviceFlowName) {
 		return serviceFlows.get(serviceFlowName);
 	}
 
