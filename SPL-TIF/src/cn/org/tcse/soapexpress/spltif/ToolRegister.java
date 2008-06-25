@@ -65,6 +65,7 @@ public class ToolRegister {
 			inputStream = new FileInputStream(file);
 			SAXBuilder sb = new SAXBuilder();
 			doc = sb.build(inputStream);
+			inputStream.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -85,6 +86,7 @@ public class ToolRegister {
 		try {
 			OutputStream outputStream = new FileOutputStream(docFile);
 			outp.output(doc, outputStream);
+			outputStream.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
