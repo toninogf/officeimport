@@ -7,10 +7,16 @@
 <title>TIF Web Console</title>
 </head>
 
-<frameset rows="*" cols="200,*" framespacing="1" frameborder="NO"
-	border="1">
-	<frame name="dir" target="main" src="dir.jsp"/>
-	<frame name="main" src="Map.jsp"/>
+<frameset rows="80,*">
+	<frame name="top" src="">
+	<frameset cols="150,*">
+		<frame name="lower_left" src="dir.jsp">
+		<frame name="lower_right" src="Map.jsp">
+	</frameset>
 </frameset>
-
+<noframes>
+<body>
+很抱谦，您使用的浏览器不支持框架功能，请采用新版本的浏览器。
+</body> 
+</noframes>
 </html>

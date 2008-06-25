@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.jdom.Document;
+
 /**
  * Servlet implementation class for Servlet: RegisterMap
  *
@@ -41,6 +43,9 @@ import javax.servlet.http.HttpServletResponse;
 		String serviceFlowName  = request.getParameter("serviceFlowName");
 		String toolId = request.getParameter("toolId");
 		mapRegister.registerMap(applicationName, toolId, serviceFlowName);
+		String mapString = mapRegister.getMap(applicationName, toolId, serviceFlowName);
+		System.out.println(mapString);
+		//TODO invoke the event center web service
 		
 		PrintWriter out = response.getWriter();
 		out.println("<p>register map success!</p>");

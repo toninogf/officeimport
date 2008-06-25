@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form>
-<p>Application Name:<input type="text" size="50"/></p>
+<form name="registerMap" action="RegisterMap" method="post">
+<p>Application Name:<input type="text" size="50" name="applicationName" /></p>
 <p>Event:
 <select name="toolId">
 <% 

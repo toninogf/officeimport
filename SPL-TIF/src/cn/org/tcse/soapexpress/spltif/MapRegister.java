@@ -1,5 +1,6 @@
 package cn.org.tcse.soapexpress.spltif;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
@@ -188,10 +189,27 @@ public class MapRegister {
 		return maps;
 	}
 
-	public Document getMap(String applicationName, String toolId,
+/*	public Document getMap(String applicationName, String toolId,
 			String serviceFlowName) {
 		String mapId = applicationName + "-" + toolId + "-" + serviceFlowName;
 		return maps.get(mapId);
+	}*/
+	
+	public String getMap(String applicationName, String toolId,
+			String serviceFlowName) {
+		String mapId = applicationName + "-" + toolId + "-" + serviceFlowName;
+		Document mapDocument =  maps.get(mapId);
+		XMLOutputter outp = new XMLOutputter();
+		Format format = Format.getPrettyFormat();
+		outp.setFormat(format);
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+		try {
+			outp.output(mapDocument, outputStream);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return outputStream.toString();
 	}
 
 	/**
