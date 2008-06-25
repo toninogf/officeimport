@@ -4,10 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Register Service Flow</title>
 </head>
 <body>
-<p>
-</p>
+<form name="serviceFlow" action="RegisterServiceFlow" method="post">
+<p>Service Flow Name: <input type="text" size="50" name="serviceFlowName"/></p>
+<p>Service Flow Endpoint: <input type="text" size="50" name="endpoint"/></p>
+<p>Service Flow Operation: <input type="text" size="50" name="operation"/></p>
+<p><input type="submit" value="register"/></p>
+</form>
 </body>
 </html>

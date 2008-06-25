@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Service Flow</title>
 </head>
 <body>
 <p>
+<a href="index.jsp">home</a>
 <a href="RegisterServiceFlow.jsp">register service flow</a>
 </p>
 </body>

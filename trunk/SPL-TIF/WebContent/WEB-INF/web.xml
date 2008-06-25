@@ -20,6 +20,16 @@
 		<servlet-class>
 		cn.org.tcse.soapexpress.spltif.RegisterServiceFlow</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		register map</description>
+		<display-name>
+		RegisterMap</display-name>
+		<servlet-name>RegisterMap</servlet-name>
+		<servlet-class>
+		cn.org.tcse.soapexpress.spltif.RegisterMap</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>RegisterTool</servlet-name>
 		<url-pattern>/RegisterTool</url-pattern>
@@ -27,6 +37,10 @@
 	<servlet-mapping>
 		<servlet-name>RegisterServiceFlow</servlet-name>
 		<url-pattern>/RegisterServiceFlow</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RegisterMap</servlet-name>
+		<url-pattern>/RegisterMap</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

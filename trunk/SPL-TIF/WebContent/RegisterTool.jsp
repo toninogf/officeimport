@@ -7,7 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>
-</p>
+<form name="tool" action="RegisterTool" method="post">
+<p>Event Type: <input type="text" size="50" name="eventTypeString"/></p>
+<p>Object Type: <input type="text" size="50" name="objectTypeString"/></p>
+<p>Product: <input type="text" size="50" name="productString"/></p>
+<p>Product Version: <input type="text" size="50" name="productVersionString"/></p>
+<p>Product Instance: <input type="text" size="50" name="productInstanceString"/></p>
+<p><input type="submit" value="register"/></p>
+</form>
 </body>
 </html>
