@@ -21,7 +21,7 @@
 	<td>
 		<select name="eventId">
 		<%
-			Store store = Store.getInstant("");
+			Store store = Store.getInstant();
 			Map<String, Event> events = store.getEvents();
 			Iterator<String> it = events.keySet().iterator();
 			while (it.hasNext()) {

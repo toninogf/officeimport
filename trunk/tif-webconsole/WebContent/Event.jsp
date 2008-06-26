@@ -51,7 +51,7 @@
 		<td>Product Instance</td>
 		<td></td>
 	<%
-		Store store = Store.getInstant("");
+		Store store = Store.getInstant();
 		Map<String, Event> events = store.getEvents();
 		Iterator it = events.keySet().iterator();
 		while (it.hasNext()) {

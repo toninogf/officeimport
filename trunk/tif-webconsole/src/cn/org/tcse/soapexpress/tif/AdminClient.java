@@ -1,6 +1,9 @@
 package cn.org.tcse.soapexpress.tif;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,13 +19,23 @@ public class AdminClient {
 	private static ALFAdminProxy proxy = null;
 
 	private static Logger logger = Logger.getLogger(AdminClient.class);
-	
+
 	static {
 		class LoadProperties {
 			public Properties load() {
 				Properties props = new Properties();
-				InputStream cin = this.getClass().getResourceAsStream(
-						"tifclient.properties");
+				String rep = Store.getInstant().getPath();
+				File confFile = new File(rep + Constant.FILE_SEPARATOR
+						+ Constant.TFI_PROPERTIES);
+				logger.debug("conf file: " + confFile);
+				InputStream cin = null;
+				try {
+					cin = new FileInputStream(confFile);
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+					logger.error("maybe the config file is not existed: " + confFile.getAbsolutePath());
+				}
 				try {
 					props.load(cin);
 				} catch (IOException e) {
@@ -42,7 +55,7 @@ public class AdminClient {
 
 	public static String deploy(String eventMapXML) {
 		try {
-			logger.info("deploy event");
+			logger.info("deploy map");
 			return proxy.deploy(eventMapXML);
 		} catch (Exception e) {
 			logger.error("deploy fail:\n" + eventMapXML);
