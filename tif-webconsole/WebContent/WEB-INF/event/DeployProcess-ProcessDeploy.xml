@@ -1,0 +1,8 @@
+<EventMatch>
+	<EventMatchName>DeployProcess</EventMatchName>
+	<EventType>DeployProcess</EventType>
+	<ObjectType>Process</ObjectType>
+	<Product>ProcessDeploy</Product>
+	<ProductVersion>1.0</ProductVersion>
+	<ProductInstance>ProductInstance</ProductInstance>
+</EventMatch>

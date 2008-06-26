@@ -1,0 +1,4 @@
+<ServiceFlow>
+	<ServiceFlowName>DeployProcessFlow</ServiceFlowName>
+	<Endpoint>http://133.133.133.56:8081/active-bpel/services/localPLService?EventNotice</Endpoint>
+</ServiceFlow>
