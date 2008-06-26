@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import org.apache.log4j.Logger;
 import org.jdom.Document;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
@@ -15,7 +16,8 @@ import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
 public class Util {
-
+	private static Logger logger = Logger.getLogger(Util.class);
+	
 	public static String document2String(Document doc) {
 		XMLOutputter outp = new XMLOutputter();
 		Format format = Format.getPrettyFormat();
@@ -31,6 +33,7 @@ public class Util {
 	}
 	
 	public static Document buildDocumentFromFile(File file) {
+		logger.info("build document from file: " + file.getAbsolutePath());
 		FileInputStream inputStream;
 		Document document = null;
 		try {
@@ -52,6 +55,7 @@ public class Util {
 	}
 	
 	public static void document2File(Document doc, File file) {
+		logger.info("write document to file: " + file.getAbsolutePath());
 		XMLOutputter outp = new XMLOutputter();
 		Format format = Format.getPrettyFormat();
 		outp.setFormat(format);

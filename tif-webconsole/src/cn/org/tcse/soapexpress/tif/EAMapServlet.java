@@ -9,6 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import cn.org.tcse.soapexpress.tif.model.EAMap;
 
 /**
@@ -18,8 +20,10 @@ import cn.org.tcse.soapexpress.tif.model.EAMap;
  public class EAMapServlet extends javax.servlet.http.HttpServlet implements javax.servlet.Servlet {
    static final long serialVersionUID = 1L;
    private Store store;
+   private static Logger logger = Logger.getLogger(EAMapServlet.class);
    @Override
    public void init(ServletConfig config) {
+	   logger.info("init store in EAMapServlet");
 	   ServletContext context = config.getServletContext();
 	   String path = context.getRealPath("/WEB-INF");
 	   store = Store.getInstant(path);
@@ -36,6 +40,7 @@ import cn.org.tcse.soapexpress.tif.model.EAMap;
 	 * @see javax.servlet.http.HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		logger.debug("EAMapServlet doGet");
 		doPost(request, response);
 	}  	
 	
@@ -43,31 +48,31 @@ import cn.org.tcse.soapexpress.tif.model.EAMap;
 	 * @see javax.servlet.http.HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		logger.debug("EAMapServlet doPost");
 		String actionString = request.getParameter("action");
 		String appName = request.getParameter("appName");
 		
 		if(actionString.equals("deploy")) {
-			System.out.println("[INFO] deploy");
 			String serviceFlowName  = request.getParameter("serviceFlowName");
 			String eventId = request.getParameter("eventId");
 			EAMap map = new EAMap(
 					appName,
 					store.getEvent(eventId),
 					store.getAction(serviceFlowName));
-			store.addEAMap(map);
-			//System.out.println(map.toString());
-			AdminClient.deploy(map.toString());
+			logger.debug("the map content:\n" + map.toString());
+			String r = AdminClient.deploy(map.toString());
+			if (!r.toLowerCase().trim().equals("fail")) {
+				store.addEAMap(map);
+			}
 		} else if (actionString.equals("undeploy")) {
-			System.out.println("[INFO] undeploy");
 			store.removeEAMap(appName);
 			AdminClient.unDeploy(appName);
 		} else if(actionString.equals("resume")) {
-			System.out.println("[INFO] resume");
 			AdminClient.resume(appName);
 		} else if (actionString.equals("pause")) {
-			System.out.println("[INFO] pause");
 			AdminClient.pause(appName);
 		}
+		logger.debug("redirect to Map.jsp");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Map.jsp");
 		dispatcher.forward(request, response);
 	}   	  	    
