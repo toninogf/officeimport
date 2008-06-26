@@ -36,7 +36,7 @@
 		<td>Operation</td>
 		<td></td>
 	<%
-		Store store = Store.getInstant("");
+		Store store = Store.getInstant();
 		Map<String, Action> actions = store.getActions();
 		Iterator it = actions.keySet().iterator();
 		while (it.hasNext()) {
