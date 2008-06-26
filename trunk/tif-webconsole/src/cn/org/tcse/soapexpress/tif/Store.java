@@ -5,6 +5,8 @@ import java.io.FileFilter;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import cn.org.tcse.soapexpress.tif.model.Action;
 import cn.org.tcse.soapexpress.tif.model.EAMap;
 import cn.org.tcse.soapexpress.tif.model.Event;
@@ -16,6 +18,8 @@ public class Store {
 	private static Map<String, EAMap> eamapMap = new HashMap<String, EAMap>();
 	private static boolean isInited = false;
 	private static Store store = null;
+	
+	private static Logger logger = Logger.getLogger(Store.class);
 	
 	public static Store getInstant(String path) {
 		if(store == null) {
@@ -32,18 +36,20 @@ public class Store {
 	}
 
 	private void init(String _path) {
+		logger.info("init Store");
 		isInited = true;
-		System.out.println("[INFO] init store");
 		path = _path;
+		logger.info("use the repository: " + path);
 		initEAMap();
 		initEvent();
 		initAction();
 	}
 
 	private boolean initEAMap() {
+		logger.info("init eaMap List from files");
 		File mapFolder = new File(path + Constant.FILE_SEPARATOR + Constant.MAP_FOLDER);
 		if (!mapFolder.exists()) {
-			System.err.println("[ERROR] the maps file path "
+			logger.warn("the maps file path "
 					+ mapFolder.getAbsolutePath() + " dosen't exist! Will create it.");
 			mapFolder.mkdirs();
 			return true;
@@ -67,9 +73,10 @@ public class Store {
 	}
 
 	private boolean initEvent() {
+		logger.info("init Event List from files");
 		File eventFolder = new File(path + Constant.FILE_SEPARATOR + Constant.EVENT_FOLDER);
 		if (!eventFolder.exists()) {
-			System.err.println("[ERROR] the event file path "
+			logger.warn("the event file path "
 					+ eventFolder.getAbsolutePath() + " dosen't exist! Will create it.");
 			eventFolder.mkdirs();
 			return true;
@@ -93,9 +100,10 @@ public class Store {
 	}
 	
 	private boolean initAction() {
+		logger.info("init Action List from files");
 		File actionFolder = new File(path + Constant.FILE_SEPARATOR + Constant.ACTION_FOLDER);
 		if (!actionFolder.exists()) {
-			System.err.println("[ERROR] the event file path "
+			logger.warn("the action file path "
 					+ actionFolder.getAbsolutePath() + " dosen't exist! Will create it.");
 			actionFolder.mkdirs();
 			return true;
@@ -136,18 +144,23 @@ public class Store {
 
 	public void addEvent(Event event) {
 		String eventId = event.getEventType() + "-" + event.getProduct();
+		logger.info("add event to store: " + eventId);
 		eventMap.put(eventId, event);
 		File eventFolder = new File(path + Constant.FILE_SEPARATOR + Constant.EVENT_FOLDER);
 		File eventFile = new File(eventFolder, eventId + ".xml");
+		logger.info("add event to file: " + eventFile.getAbsolutePath());
 		event.toFile(eventFile);
 	}
 	
 	public void removeEvent(String eventId) {
+		logger.info("remove event from store: " + eventId);
 		eventMap.remove(eventId);
 		File eventFolder = new File(path + Constant.FILE_SEPARATOR + Constant.EVENT_FOLDER);
 		File eventFile = new File(eventFolder, eventId + ".xml");
-		if(eventFile.exists())
+		if(eventFile.exists()) {
+			logger.info("remove event from file: " + eventFile.getAbsolutePath());
 			eventFile.delete();
+		}
 	}
 	
 	public Map<String, Action> getActions() {
@@ -160,18 +173,23 @@ public class Store {
 
 	public void addAction(Action action) {
 		String actionId = action.getServiceFlowName();
+		logger.info("add action to store: " + actionId);
 		actionMap.put(actionId, action);
 		File actionFolder = new File(path + Constant.FILE_SEPARATOR + Constant.ACTION_FOLDER);
 		File actionFile = new File(actionFolder, actionId + ".xml");
+		logger.info("add action to file: " + actionFile.getAbsolutePath());
 		action.toFile(actionFile);
 	}
 	
 	public void removeAction(String serviceFlowName) {
+		logger.info("remove action from store: " + serviceFlowName);
 		actionMap.remove(serviceFlowName);
 		File actionFolder = new File(path + Constant.FILE_SEPARATOR + Constant.ACTION_FOLDER);
 		File actionFile = new File(actionFolder, serviceFlowName + ".xml");
-		if(actionFile.exists())
+		if(actionFile.exists()) {
 			actionFile.delete();
+			logger.info("remove action from file: " + actionFile.getAbsolutePath());
+		}
 	}
 
 	public Map<String, EAMap> getEamapMap() {
@@ -184,17 +202,22 @@ public class Store {
 
 	public void addEAMap(EAMap eamap) {
 		String mapId = eamap.getApplicationName();
+		logger.info("add map to store: " + mapId);
 		eamapMap.put(mapId, eamap);
 		File mapFolder = new File(path + Constant.FILE_SEPARATOR + Constant.MAP_FOLDER);
 		File mapFile = new File(mapFolder, mapId + ".xml");
+		logger.info("add map to file: " + mapFile.getAbsolutePath());
 		eamap.toFile(mapFile);
 	}
 	
 	public void removeEAMap(String appName) {
+		logger.info("remove map from store: " + appName);
 		eamapMap.remove(appName);
 		File mapFolder = new File(path + Constant.FILE_SEPARATOR + Constant.MAP_FOLDER);
 		File mapFile = new File(mapFolder, appName + ".xml");
-		if(mapFile.exists())
+		if(mapFile.exists()) {
 			mapFile.delete();
+			logger.info("remove map from file: " + mapFile.getAbsolutePath());
+		}
 	}
 }

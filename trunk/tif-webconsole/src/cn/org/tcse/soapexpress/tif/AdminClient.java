@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
 import org.eclipse.www.alf.eventManager.admin.ALFAdminProxy;
 
 public class AdminClient {
@@ -14,6 +15,8 @@ public class AdminClient {
 
 	private static ALFAdminProxy proxy = null;
 
+	private static Logger logger = Logger.getLogger(AdminClient.class);
+	
 	static {
 		class LoadProperties {
 			public Properties load() {
@@ -33,22 +36,27 @@ public class AdminClient {
 		Properties props = new LoadProperties().load();
 		String url = props.getProperty("tifadminurl",
 				"http://localhost:8080/ALFEventManager/services/ALFAdmin");
+		logger.info("use tif server endpoint:" + url);
 		proxy = new ALFAdminProxy(url);
 	}
 
 	public static String deploy(String eventMapXML) {
 		try {
+			logger.info("deploy event");
 			return proxy.deploy(eventMapXML);
 		} catch (Exception e) {
-			return "Deploy Fail!";
+			logger.error("deploy fail:\n" + eventMapXML);
+			return "fail";
 		}
 	}
 
 	public static void unDeploy(String appName) {
 		if (appName == null) {
 			appName = applicationName;
+			logger.warn("appName is null. use the default:" + appName);
 		}
 		try {
+			logger.info("undeploy map:" + appName);
 			proxy.unDeploy(appName);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,8 +66,10 @@ public class AdminClient {
 	public static void resume(String appName) {
 		if (appName == null) {
 			appName = applicationName;
+			logger.warn("appName is null. use the default:" + appName);
 		}
 		try {
+			logger.info("resume map:" + appName);
 			proxy.resume(appName);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -69,16 +79,20 @@ public class AdminClient {
 	public static String getStatus(String appName) {
 		if (appName == null) {
 			appName = applicationName;
+			logger.warn("appName is null. use the default:" + appName);
 		}
 		try {
 			int statusCode = proxy.status(appName).getStatus().getValue();
 			if (statusCode == 1) {
+				logger.info("get " + appName + " status: Running");
 				return "Running";
 			} else {
+				logger.info("get " + appName + " status: Paused");
 				return "Paused";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error("get " + appName + " status: Unknown");
 			return "Unknown";
 		}
 	}
@@ -86,9 +100,11 @@ public class AdminClient {
 	public static void pause(String appName) {
 		if (appName == null) {
 			appName = applicationName;
+			logger.warn("appName is null. use the default:" + appName);
 		}
 		try {
 			proxy.pause(appName);
+			logger.info("pause map:" + appName);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
