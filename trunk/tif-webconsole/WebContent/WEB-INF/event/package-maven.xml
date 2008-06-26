@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EventMatch>
+  <EventMatchName>package-maven</EventMatchName>
+  <EventType>package</EventType>
+  <ObjectType>pom</ObjectType>
+  <Product>maven</Product>
+  <ProductVersion>1.7</ProductVersion>
+  <ProductInstance>apache-maven-1.7</ProductInstance>
+</EventMatch>

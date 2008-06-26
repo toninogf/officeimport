@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EventMatch>
+  <EventMatchName>build-ant</EventMatchName>
+  <EventType>build</EventType>
+  <ObjectType>buildfile</ObjectType>
+  <Product>ant</Product>
+  <ProductVersion>2.9</ProductVersion>
+  <ProductInstance>apache-ant-2.9</ProductInstance>
+</EventMatch>

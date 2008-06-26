@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceFlow>
+	<ServiceFlowName>ServiceFlowSOAP1</ServiceFlowName>
+	<Endpoint>
+		http://localhost:8080/TestALFService/services/ALFServiceFlowSOAP?EventNotice
+	</Endpoint>
+</ServiceFlow>
