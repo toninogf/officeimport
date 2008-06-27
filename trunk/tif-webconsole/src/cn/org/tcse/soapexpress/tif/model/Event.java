@@ -72,29 +72,29 @@ public class Event {
 	public static Event fromDocument(Document doc) {
 		Element root = doc.getRootElement();
 		Event event = new Event();
-		event.setDoc(doc);
+		event.doc =doc;
 		List<Element> elements = root.getChildren();
 		Iterator<Element> it = elements.iterator();
 		while(it.hasNext()) {
 			Element element = it.next();
 			if(element.getName().equals("EventMatchName")) {
 				String eventMatchName = element.getValue();
-				event.setEventMatchName(eventMatchName.trim());
+				event.eventMatchName = eventMatchName.trim();
 			} else if(element.getName().equals("EventType")) {
 				String eventType = element.getValue();
-				event.setEventType(eventType.trim());
+				event.eventType = eventType.trim();
 			} else if(element.getName().equals("ObjectType")) {
 				String objectType = element.getValue();
-				event.setObjectType(objectType.trim());
+				event.objectType = objectType.trim();
 			} else if(element.getName().equals("Product")) {
 				String product = element.getValue();
-				event.setProduct(product.trim());
+				event.product = product.trim();
 			} else if(element.getName().equals("ProductInstance")) {
 				String productInstance = element.getValue();
-				event.setProductInstance(productInstance.trim());
+				event.productInstance = productInstance.trim();
 			} else if(element.getName().equals("ProductVersion")) {
 				String productVersion = element.getValue();
-				event.setProductVersion(productVersion.trim());
+				event.productVersion = productVersion.trim();
 			} else {
 				System.err.println("[Error] error when Event fromDocument");
 				return null;
@@ -121,56 +121,28 @@ public class Event {
 		return eventMatchName;
 	}
 
-	public void setEventMatchName(String eventMatchName) {
-		this.eventMatchName = eventMatchName;
-	}
-
 	public String getEventType() {
 		return eventType;
-	}
-
-	public void setEventType(String eventType) {
-		this.eventType = eventType;
 	}
 
 	public String getObjectType() {
 		return objectType;
 	}
-
-	public void setObjectType(String objectType) {
-		this.objectType = objectType;
-	}
-
+	
 	public String getProduct() {
 		return product;
 	}
-
-	public void setProduct(String product) {
-		this.product = product;
-	}
-
+	
 	public String getProductVersion() {
 		return productVersion;
 	}
-
-	public void setProductVersion(String productVersion) {
-		this.productVersion = productVersion;
-	}
-
+	
 	public String getProductInstance() {
 		return productInstance;
 	}
 
-	public void setProductInstance(String productInstance) {
-		this.productInstance = productInstance;
-	}
-
 	public Document getDoc() {
 		return doc;
-	}
-
-	public void setDoc(Document doc) {
-		this.doc = doc;
 	}
 	
 	public static void main(String[] args) {

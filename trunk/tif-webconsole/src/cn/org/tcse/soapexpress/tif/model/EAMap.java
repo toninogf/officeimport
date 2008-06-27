@@ -78,7 +78,7 @@ public class EAMap {
 		Action action = Action.fromDocument(actionDoc);
 
 		EAMap eamap = new EAMap(applicationName, event, action);
-		eamap.setDoc(doc);
+		eamap.doc = doc;
 
 		return eamap;
 	}
@@ -100,32 +100,16 @@ public class EAMap {
 		return event;
 	}
 
-	public void setEvent(Event event) {
-		this.event = event;
-	}
-
 	public Action getAction() {
 		return action;
-	}
-
-	public void setAction(Action action) {
-		this.action = action;
 	}
 
 	public Document getDoc() {
 		return doc;
 	}
 
-	public void setDoc(Document doc) {
-		this.doc = doc;
-	}
-
 	public String getApplicationName() {
 		return this.applicationName;
-	}
-
-	public void setApplicationName(String applicationName) {
-		this.applicationName = applicationName;
 	}
 
 	public static void main(String[] args) {

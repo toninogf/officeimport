@@ -16,7 +16,9 @@
 </frameset>
 <noframes>
 <body>
-很抱谦，您使用的浏览器不支持框架功能，请采用新版本的浏览器。
+<h3>Sorry, but your web brower doesn't support frame. Please use a
+brower supporting frame. <a	href="http://www.firefox.com">Firefox 3</a>
+ recommended.</h3>
 </body> 
 </noframes>
 </html>

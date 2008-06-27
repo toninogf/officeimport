@@ -140,10 +140,6 @@ public class Store {
 		return path;
 	}
 
-	public void setPath(String path) {
-		Store.path = path;
-	}
-
 	public Map<String, Event> getEvents() {
 		return eventMap;
 	}
