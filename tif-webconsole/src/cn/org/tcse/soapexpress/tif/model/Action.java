@@ -49,20 +49,20 @@ public class Action {
 	public static Action fromDocument(Document doc) {
 		Element root = doc.getRootElement();
 		Action action = new Action();
-		action.setDoc(doc);
+		action.doc = doc;
 		List<Element> elements = root.getChildren();
 		Iterator<Element> it = elements.iterator();
 		while(it.hasNext()) {
 			Element element = it.next();
 			if(element.getName().equals("ServiceFlowName")) {
 				String serviceFlowName = element.getValue();
-				action.setServiceFlowName(serviceFlowName.trim());
+				action.serviceFlowName = serviceFlowName.trim();
 			} else if(element.getName().equals("Endpoint")) {
 				String[] temp = element.getValue().split("\\?");
 				String endpoint = temp[0].trim();
-				action.setEndpoint(endpoint);
+				action.endpoint = endpoint;
 				String operation = temp[1].trim();
-				action.setOperation(operation);
+				action.operation = operation;
 			} else {
 				System.err.println("error when Action fromDocument");
 				return null;
@@ -88,32 +88,16 @@ public class Action {
 		return serviceFlowName;
 	}
 
-	public void setServiceFlowName(String serviceFlowName) {
-		this.serviceFlowName = serviceFlowName;
-	}
-
 	public String getEndpoint() {
 		return endpoint;
-	}
-
-	public void setEndpoint(String endpoint) {
-		this.endpoint = endpoint;
 	}
 
 	public String getOperation() {
 		return operation;
 	}
 
-	public void setOperation(String operation) {
-		this.operation = operation;
-	}
-
 	public Document getDoc() {
 		return doc;
-	}
-
-	public void setDoc(Document doc) {
-		this.doc = doc;
 	}
 	
 	public static void main(String[] args) {
