@@ -26,7 +26,7 @@ import cn.org.tcse.soapexpress.tif.model.Action;
 	   logger.info("init store in Action Servlet");
 	   ServletContext context = config.getServletContext();
 	   String path = context.getRealPath("/WEB-INF");
-	   store = Store.getInstant(path);
+	   store = Store.getInstance(path);
    }
     /* (non-Java-doc)
 	 * @see javax.servlet.http.HttpServlet#HttpServlet()
