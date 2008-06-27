@@ -29,7 +29,7 @@ public class EventServlet extends javax.servlet.http.HttpServlet implements
 		logger.debug("init store in EventServlet");
 		ServletContext context = config.getServletContext();
 		String path = context.getRealPath("/WEB-INF");
-		store = Store.getInstant(path);
+		store = Store.getInstance(path);
 	}
 
 	/*

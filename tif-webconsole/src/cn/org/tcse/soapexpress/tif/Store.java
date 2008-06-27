@@ -21,7 +21,7 @@ public class Store {
 	
 	private static Logger logger = Logger.getLogger(Store.class);
 	
-	public static Store getInstant() {
+	public static Store getInstance() {
 		if(!isInited) {
 			logger.error("must init store with the repository path, please use getInstant(String path)");
 			return null;
@@ -29,7 +29,7 @@ public class Store {
 		return store;
 	}
 	
-	public static Store getInstant(String path) {
+	public static Store getInstance(String path) {
 		if(path.equals("") || path==null) {
 			logger.error("repository path can't be null");
 			return null;

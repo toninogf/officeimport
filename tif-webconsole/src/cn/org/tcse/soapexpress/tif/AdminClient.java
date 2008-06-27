@@ -24,7 +24,7 @@ public class AdminClient {
 		class LoadProperties {
 			public Properties load() {
 				Properties props = new Properties();
-				String rep = Store.getInstant().getPath();
+				String rep = Store.getInstance().getPath();
 				File confFile = new File(rep + Constant.FILE_SEPARATOR
 						+ Constant.TFI_PROPERTIES);
 				logger.debug("conf file: " + confFile);

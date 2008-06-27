@@ -26,7 +26,7 @@ import cn.org.tcse.soapexpress.tif.model.EAMap;
 	   logger.info("init store in EAMapServlet");
 	   ServletContext context = config.getServletContext();
 	   String path = context.getRealPath("/WEB-INF");
-	   store = Store.getInstant(path);
+	   store = Store.getInstance(path);
    }
    
     /* (non-Java-doc)
