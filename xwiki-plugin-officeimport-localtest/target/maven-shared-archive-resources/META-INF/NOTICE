@@ -7,6 +7,7 @@ XWiki Platform - Plugins - office import - localtest
 Copyright 2004-2008 XWiki
 
 This product includes/uses software developed by 'an unknown organization'
+  - Log4j (http://logging.apache.org/log4j/docs/)
   - OpenOffice.org "javaunohelper" module (http://udk.openoffice.org)
   - OpenOffice.org "jurt" module (http://udk.openoffice.org)
   - OpenOffice.org "ridljar" module (http://udk.openoffice.org)
