@@ -51,7 +51,7 @@ public class Test {
         props.setBooleanAttributeValues("empty");
 
 //        TagNode node = cleaner.clean(html);
-        TagNode node = cleaner.clean(new File("src/test/resources/test2.html"));
+        TagNode node = cleaner.clean(new File("src/test/resources/chinesecharset.html"));
         cleaner.setInnerHtml( (TagNode)(node.evaluateXPath("//table[1]")[0]), "<td>row1<td>row2<td>row3");
 //        Document document = new JDomSerializer(props).createJDom(node);
 //        XMLOutputter xmlOut = new XMLOutputter();
@@ -61,11 +61,16 @@ public class Test {
 
         System.out.println("vreme: " + (System.currentTimeMillis() - start));
 
-        new PrettyXmlSerializer(props).writeXmlToFile(node, "c:/temp/out.xml");
+        new PrettyXmlSerializer(props).writeXmlToStream(node, System.out);
 
         System.out.println("vreme: " + (System.currentTimeMillis() - start));
 
         new ConfigFileTagProvider(new File("default.xml"));
+        TagNode[] nodes = node.getChildTags();
+        for(TagNode n : nodes) {
+            System.out.println("============");
+            new PrettyXmlSerializer(props).writeXmlToStream(n, System.out);
+        }
     }
 
 }
