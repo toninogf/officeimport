@@ -1,0 +1,1 @@
+this is a xwiki plugin which can convert offcie document lik MS word to xwiki format(html or xwiki syntax code)
